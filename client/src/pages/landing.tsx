@@ -1,6 +1,6 @@
 import { Link, useLocation } from "wouter";
 import { useAuth } from "@/hooks/use-auth";
-import { BookOpen, BrainCircuit, Sparkles, Target, ArrowRight } from "lucide-react";
+import { BookOpen, BrainCircuit, Sparkles, Target, ArrowRight, MessageSquare } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function Landing() {

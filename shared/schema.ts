@@ -2,10 +2,10 @@ import { pgTable, serial, text, varchar, integer, timestamp, jsonb } from "drizz
 import { relations } from "drizzle-orm";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
-import { users } from "./models/auth";
+import { users, sessions } from "./models/auth";
 import { conversations, messages } from "./models/chat";
 
-export { users, conversations, messages };
+export { users, sessions, conversations, messages };
 
 export const quizzes = pgTable("quizzes", {
   id: serial("id").primaryKey(),
