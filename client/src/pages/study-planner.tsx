@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useStudyPlans, useCreateStudyPlan } from "@/hooks/use-study-plans";
 import { Calendar, Plus, Loader2, Book, Clock } from "lucide-react";
 import { format } from "date-fns";
+import { StudyPlan } from "@shared/schema";
 
 export default function StudyPlanner() {
   const { data: plans, isLoading } = useStudyPlans();
@@ -95,7 +96,7 @@ export default function StudyPlanner() {
         </div>
       ) : (
         <div className="space-y-6">
-          {plans?.map((plan) => (
+          {plans?.map((plan: StudyPlan) => (
             <div key={plan.id} className="bg-card rounded-3xl border border-border/50 shadow-sm overflow-hidden hover:shadow-md transition-shadow">
               <div className="p-6 border-b border-border/50 flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-secondary/20">
                 <div className="flex items-center gap-4">
@@ -113,7 +114,7 @@ export default function StudyPlanner() {
               <div className="p-6">
                 <div className="prose prose-sm md:prose-base max-w-none text-foreground prose-p:leading-relaxed prose-headings:font-bold">
                   {/* Safely render generated plan content. A real app might use Markdown parser here. */}
-                  {plan.planContent.split('\n').map((line, i) => (
+                  {plan.planContent.split('\n').map((line: string, i: number) => (
                     <p key={i} className="mb-2">{line}</p>
                   ))}
                 </div>
